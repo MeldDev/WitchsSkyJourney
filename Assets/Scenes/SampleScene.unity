@@ -807,7 +807,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 301.05005, y: -21.945017}
+  m_AnchoredPosition: {x: 301.05005, y: -21.945068}
   m_SizeDelta: {x: 479.52, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &34232738
@@ -9215,8 +9215,9 @@ GameObject:
   m_Component:
   - component: {fileID: 681619014}
   - component: {fileID: 681619013}
+  - component: {fileID: 681619015}
   m_Layer: 0
-  m_Name: GemBalance
+  m_Name: Balance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9234,7 +9235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ae1bba5f3e4e334b8ea3cdd3fcfbc59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currency: 228
+  _value: 0
 --- !u!224 &681619014
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9255,6 +9256,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &681619015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681619011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1b6c6fedbc02264ea115b89b5d77756, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _value: 0
 --- !u!1 &688475443
 GameObject:
   m_ObjectHideFlags: 0
@@ -12762,7 +12776,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 687865855
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 2
@@ -18773,7 +18787,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 166.40334, y: -73.62}
+  m_AnchoredPosition: {x: 166.40332, y: -73.62}
   m_SizeDelta: {x: 275, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1335788688
@@ -23245,7 +23259,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 584.855, y: -124.663994}
+  m_AnchoredPosition: {x: 584.855, y: -124.664}
   m_SizeDelta: {x: 999.21, y: 235.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1602305081
@@ -23383,8 +23397,8 @@ GameObject:
   - component: {fileID: 1632265806}
   - component: {fileID: 1632265810}
   - component: {fileID: 1632265809}
-  - component: {fileID: 1632265808}
-  - component: {fileID: 1632265807}
+  - component: {fileID: 1632265811}
+  - component: {fileID: 1632265812}
   m_Layer: 0
   m_Name: WellCounter
   m_TagString: Untagged
@@ -23414,79 +23428,6 @@ RectTransform:
   m_AnchoredPosition: {x: 500, y: 2530.3992}
   m_SizeDelta: {x: 560.1599, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1632265807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632265805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54187206d306fe74992a5299bb315a26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _windowsForClose: []
-  _windowsForOpen:
-  - {fileID: 583742326}
-  _transitionPrefab: {fileID: 762953736366745529, guid: 147879281a5d56d4b846fe8ea94ceac1, type: 3}
-  _transitionPanel: {fileID: 1750996070}
---- !u!114 &1632265808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632265805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1632265809}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1632265807}
-        m_TargetAssemblyTypeName: CreateTransition, Assembly-CSharp
-        m_MethodName: DoTransition
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1632265809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23525,6 +23466,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1632265805}
   m_CullTransparentMesh: 1
+--- !u!114 &1632265811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632265805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b31851945b05ed49bc8bb91d5c01faf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _wellCounterTMP: {fileID: 944328466}
+  _wellCounterValue: 0
+  _wellCounter: {fileID: 1632265805}
+--- !u!95 &1632265812
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632265805}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f0ef29ccaa74e3642959f821196c69dd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1634365817
 GameObject:
   m_ObjectHideFlags: 0
@@ -28349,8 +28325,8 @@ GameObject:
   - component: {fileID: 2001404149}
   - component: {fileID: 2001404153}
   - component: {fileID: 2001404152}
-  - component: {fileID: 2001404151}
-  - component: {fileID: 2001404150}
+  - component: {fileID: 2001404155}
+  - component: {fileID: 2001404154}
   m_Layer: 0
   m_Name: PumpkinCounter
   m_TagString: Untagged
@@ -28380,79 +28356,6 @@ RectTransform:
   m_AnchoredPosition: {x: -500, y: 2530.3992}
   m_SizeDelta: {x: 560.16, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2001404150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2001404148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54187206d306fe74992a5299bb315a26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _windowsForClose: []
-  _windowsForOpen:
-  - {fileID: 583742326}
-  _transitionPrefab: {fileID: 762953736366745529, guid: 147879281a5d56d4b846fe8ea94ceac1, type: 3}
-  _transitionPanel: {fileID: 1750996070}
---- !u!114 &2001404151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2001404148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 2001404152}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2001404150}
-        m_TargetAssemblyTypeName: CreateTransition, Assembly-CSharp
-        m_MethodName: DoTransition
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &2001404152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28491,6 +28394,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2001404148}
   m_CullTransparentMesh: 1
+--- !u!95 &2001404154
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001404148}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7e330ee00378dce4b965496b6ebd4824, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2001404155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001404148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c22026c6045d595418cebe8790879978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _PumpkinCounterTMP: {fileID: 1529011074}
+  _PumpkinCounterValue: 0
+  _PumpkinCounter: {fileID: 2001404148}
 --- !u!1 &2034847174
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ public class GemBalanceViewUpdate : MonoBehaviour
 
     private void UpdateBalanceInformation()
     {
-        _gemBalanceText.text = GemBalance.instance.Currency.ToString();
+        _gemBalanceText.text = GemBalance.instance.Value.ToString();
     }
 
 }

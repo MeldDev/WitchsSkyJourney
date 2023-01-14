@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class BalanceBase : MonoBehaviour
 {
-    [SerializeField] private int currency;
-    public int Currency { get { return currency; } }
+    [SerializeField] private int _value;
+    public int Value { get { return _value; } }
 
     public delegate void CurrencyDelegate_();
     public CurrencyDelegate_ CurrencyDelegate;
 
     public void PlusCurrencyOnValue(int value)
     {
-        currency += value;
+        _value += value;
         CurrencyDelegate?.Invoke();
     }
     public void MinusCurrencyOnValue(int value)
     {
-        if (currency - value >= 0) currency -= value;
+        if (_value - value >= 0) _value -= value;
         else Debug.Log("Not enough gems");
         CurrencyDelegate?.Invoke();
     }
