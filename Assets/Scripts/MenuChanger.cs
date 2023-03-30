@@ -8,8 +8,8 @@ public class MenuChanger : MonoBehaviour
     [SerializeField] GameObject _playMenu;
     void Start()
     {
-        LevelSettings.instance.LoadMeinMenuDelegate += ChangeMenu;
-        LevelSettings.instance.StartLevelDelegate += ChangeMenu;
+        LevelSettings.instance.OnLoadMeinMenu += ChangeMenu;
+        LevelSettings.instance.OnStartLevel += ChangeMenu;
     }
 
     void ChangeMenu()

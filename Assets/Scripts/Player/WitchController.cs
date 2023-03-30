@@ -1,8 +1,12 @@
 using System;
 using UnityEngine;
+using Spine.Unity;
 
 public class WitchController : MonoBehaviour, IClickable
 {
+    [SerializeField] SkeletonAnimation _skeletonAnimation;
+    [SerializeField] AnimationReferenceAsset _tapToFly;
+
     [SerializeField] private Transform _heroTransform;
     [SerializeField] private Rigidbody2D _heroRigidBody;
     [SerializeField] private float _speedFlyingHero;
@@ -15,12 +19,12 @@ public class WitchController : MonoBehaviour, IClickable
         GameObject.FindObjectOfType<StartLevelPanel>().SetWitchGM(this.gameObject);
         /*        LevelSettings.instance.LoadMeinMenuDelegate += () => _tapToPlayPanel.SetActive(true);
                 LevelSettings.instance.ResumeLevelDelegate += () => _tapToResumePanel.SetActive(true);*/
-        LevelSettings.instance.FinishLevelDelegate += DestroyObj;
+        LevelSettings.instance.OnFinishLevel += DestroyObj;
     }
 
     void DestroyObj()
     {
-        LevelSettings.instance.FinishLevelDelegate -= DestroyObj;
+        LevelSettings.instance.OnFinishLevel -= DestroyObj;
         Destroy(this.gameObject);
     }
     public void Interact()
@@ -30,8 +34,7 @@ public class WitchController : MonoBehaviour, IClickable
         _heroRigidBody.AddForce(new Vector2(0, 700));
         _heroRigidBody.velocity = Vector2.zero;
         Vibration.Vibrate(100);
+        _skeletonAnimation.AnimationState.SetAnimation(1,_tapToFly, false);
     }
 
-
-
-}
+} 

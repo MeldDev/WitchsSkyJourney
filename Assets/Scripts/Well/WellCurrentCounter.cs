@@ -8,8 +8,8 @@ public class WellCurrentCounter : MonoBehaviour
     [SerializeField] private GameObject _wellCounter;
     private void Start()
     {
-        LevelSettings.instance.StartLevelDelegate += StartCounter;
-        WellBalance.instance.CurrencyDelegate += UpdateCounter;
+        LevelSettings.instance.OnStartLevel += StartCounter;
+        WellBalance.instance.OnCurrencyChange += UpdateCounter;
         StartCounter();
     }
     void StartCounter()

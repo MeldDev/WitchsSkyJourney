@@ -1,0 +1,17 @@
+{ "skeleton": { "images": "D:/UnityProjects/FlappyAnyoneWithAnanasia/Assets/Images/witchs/images/" },
+"PhotoshopToSpine": { "scale": 1, "padding": 1, "trim": true },
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "Слой 3", "bone": "root", "attachment": "Слой 3" }
+],
+"skins": {
+	"default": {
+		"Слой 3": {
+			"Слой 3": { "x": 532, "y": -500, "width": 1080, "height": 1002 }
+		}
+	}
+},
+"animations": { "animation": {} }
+}

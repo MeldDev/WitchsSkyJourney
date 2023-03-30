@@ -14,9 +14,9 @@ public class DistanceCounter : MonoBehaviour
 
     private void Start()
     {
-        LevelSettings.instance.StartLevelDelegate += () => { _currentDistance = 0; StartCoroutine(UpdateDistance()); };
-        LevelSettings.instance.ResumeLevelDelegate += () => StartCoroutine(UpdateDistance());
-        LevelSettings.instance.FinishLevelDelegate += () => StopCoroutine(UpdateDistance());
+        LevelSettings.instance.OnStartLevel += () => { _currentDistance = 0; StartCoroutine(UpdateDistance()); };
+        LevelSettings.instance.OnResumeLevel += () => StartCoroutine(UpdateDistance());
+        LevelSettings.instance.OnFinishLevel += () => StopCoroutine(UpdateDistance());
     }
 
     private IEnumerator UpdateDistance()

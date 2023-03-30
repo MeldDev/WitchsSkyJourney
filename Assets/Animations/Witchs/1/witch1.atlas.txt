@@ -1,0 +1,111 @@
+
+witch1.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Broomstick
+  rotate: false
+  xy: 6, 4
+  size: 972, 148
+  orig: 973, 283
+  offset: 1, 135
+  index: -1
+Head
+  rotate: false
+  xy: 2, 165
+  size: 716, 584
+  orig: 716, 584
+  offset: 0, 0
+  index: -1
+body
+  rotate: true
+  xy: 451, 99
+  size: 342, 293
+  orig: 1080, 1002
+  offset: 334, 161
+  index: -1
+leftEye
+  rotate: false
+  xy: 2, 127
+  size: 38, 64
+  orig: 38, 66
+  offset: 0, 1
+  index: -1
+leftHand
+  rotate: false
+  xy: 2, 186
+  size: 58, 78
+  orig: 58, 97
+  offset: 0, 8
+  index: -1
+leftLeg
+  rotate: true
+  xy: 901, 233
+  size: 265, 247
+  orig: 265, 247
+  offset: 0, 0
+  index: -1
+leftVeko
+  rotate: false
+  xy: 2, 255
+  size: 40, 79
+  orig: 40, 79
+  offset: 0, 0
+  index: -1
+mouth
+  rotate: false
+  xy: 59, 638
+  size: 35, 27
+  orig: 35, 27
+  offset: 0, 0
+  index: -1
+plasch
+  rotate: true
+  xy: 551, 290
+  size: 380, 417
+  orig: 382, 420
+  offset: 1, 1
+  index: -1
+rightEye
+  rotate: false
+  xy: 2, 583
+  size: 65, 79
+  orig: 67, 79
+  offset: 0, 0
+  index: -1
+rightHand
+  rotate: false
+  xy: 205, 643
+  size: 148, 106
+  orig: 150, 112
+  offset: 0, 6
+  index: -1
+rightLeg
+  rotate: false
+  xy: 718, 101
+  size: 313, 224
+  orig: 315, 224
+  offset: 2, 0
+  index: -1
+rightveko
+  rotate: false
+  xy: 2, 332
+  size: 65, 79
+  orig: 66, 79
+  offset: 0, 0
+  index: -1
+wrist
+  rotate: false
+  xy: 61, 721
+  size: 44, 29
+  orig: 95, 77
+  offset: 50, 4
+  index: -1
+yubka
+  rotate: false
+  xy: 2, 662
+  size: 194, 86
+  orig: 194, 86
+  offset: 0, 0
+  index: -1

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class LevelSettings: MonoBehaviour
@@ -13,14 +14,10 @@ public class LevelSettings: MonoBehaviour
 
     public static LevelSettings instance = null;
 
-    public delegate void StartLevelDelegate_();
-    public StartLevelDelegate_ StartLevelDelegate;
-    public delegate void FinishLevelDelegate_();
-    public FinishLevelDelegate_ FinishLevelDelegate;
-    public delegate void ResumeLevelDelegate_();
-    public ResumeLevelDelegate_ ResumeLevelDelegate;
-    public delegate void LoadMeinMenuDelegate_();
-    public LoadMeinMenuDelegate_ LoadMeinMenuDelegate;
+    public Action OnStartLevel;
+    public Action OnFinishLevel;
+    public Action OnResumeLevel;
+    public Action OnLoadMeinMenu;
     private void Awake()
     {    
         if (instance == null)
@@ -40,14 +37,14 @@ public class LevelSettings: MonoBehaviour
         Instantiate(_witchPrefab, _startPosition.transform.position, Quaternion.identity);
 
 
-        LoadMeinMenuDelegate?.Invoke();
+        OnLoadMeinMenu?.Invoke();
         Debug.Log("Load Main Menu");
     }
     public void StartLevel()
     {
         GameState = true;
         IsPause = false;
-        StartLevelDelegate?.Invoke();
+        OnStartLevel?.Invoke();
         Debug.Log("Start Level");
     }
     public void FinishLevel()
@@ -58,7 +55,7 @@ public class LevelSettings: MonoBehaviour
         _losePanel.SetActive(true);
 
 
-        FinishLevelDelegate?.Invoke();
+        OnFinishLevel?.Invoke();
         Debug.Log("Finish Level");
 
     }
@@ -67,9 +64,9 @@ public class LevelSettings: MonoBehaviour
     {
         GameState = true;
         IsPause = false;
-        Instantiate(_witchPrefab, _startPosition.transform.position, Quaternion.identity);
-
-        ResumeLevelDelegate?.Invoke();
+        var gm = Instantiate(_witchPrefab, _startPosition.transform.position, Quaternion.identity).GetComponent<WitchController>();
+        gm.Interact();
+        OnResumeLevel?.Invoke();
         Debug.Log("Resume Level");
     }
 }

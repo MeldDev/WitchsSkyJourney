@@ -7,23 +7,31 @@ public class WellBuilder : MonoBehaviour
     [Header("WellBuilder")]
     [SerializeField] private GameObject _wellPrefab;
     [SerializeField] private GameObject _nextWellPrefab;
+    [Header("RangeSpawn")]
     [SerializeField] private float _rangeSpawnWellToStart;
     [SerializeField] private float _rangeSpawnWell;
+    [SerializeField] private float _rangeSpawnWellMax;
+    [Header("SizeDoubleWell")]
     [SerializeField] private float _sizeDoubleWellToStart;
     [SerializeField] private float _sizeDoubleWell;
+    [SerializeField] private float _sizeDoubleWellMax;
+    [Header("SizeOneWell")]
     [SerializeField] private float _sizeOneWellToStart;
     [SerializeField] private float _sizeOneWell;
+    [SerializeField] private float _sizeOneWellMax;
+    [Header("SpeedWell")]
     [SerializeField] private float _speedWellToStart;
     [SerializeField] private float _speedWell;
+    [SerializeField] private float _speedWellMax;
     [SerializeField] private GameObject _gemPrefab;
 
     private List<GameObject> _wellList = new List<GameObject>();
 
     private void Start()
     {
-        LevelSettings.instance.StartLevelDelegate += StartBuildWell;
-        LevelSettings.instance.ResumeLevelDelegate += BuildWell;
-        LevelSettings.instance.FinishLevelDelegate += DestroyAllWells;
+        LevelSettings.instance.OnStartLevel += StartBuildWell;
+        LevelSettings.instance.OnResumeLevel += BuildWell;
+        LevelSettings.instance.OnFinishLevel += DestroyAllWells;
     }
     void StartBuildWell()
     {
@@ -67,14 +75,14 @@ public class WellBuilder : MonoBehaviour
     public void SetBiggestSize()
     {
 
-        _sizeDoubleWell = _sizeDoubleWell <= 1.5f ? _sizeDoubleWell + 0.1f : _sizeDoubleWell = 1.5f;
-        _sizeOneWell = _sizeOneWell <= 2.5f ? _sizeOneWell + 0.1f : _sizeOneWell = 2.5f;
+        _sizeDoubleWell = _sizeDoubleWell < _sizeDoubleWellMax ? _sizeDoubleWell + 0.1f : _sizeDoubleWell = _sizeDoubleWellMax;
+        _sizeOneWell = _sizeOneWell < _sizeOneWellMax ? _sizeOneWell + 0.1f : _sizeOneWell = _sizeOneWellMax;
 
     }
     public void SetFasterWells()
     {
 
-        _speedWell = _speedWell <= 5.5f ? _speedWell + 0.1f : _speedWell = 5.5f;
+        _speedWell = _speedWell < _speedWellMax ? _speedWell + 0.1f : _speedWell = _speedWellMax;
 
     }
     public void DestroyAllWells()

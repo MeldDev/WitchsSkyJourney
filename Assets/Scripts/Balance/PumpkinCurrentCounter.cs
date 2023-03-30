@@ -8,8 +8,8 @@ public class PumpkinCurrentCounter : MonoBehaviour
     [SerializeField] private GameObject _PumpkinCounter;
     private void Start()
     {
-        LevelSettings.instance.StartLevelDelegate += StartCounter;
-        GemBalance.instance.CurrencyDelegate += UpdateCounter;
+        LevelSettings.instance.OnStartLevel += StartCounter;
+        GemBalance.instance.OnCurrencyChange += UpdateCounter;
         StartCounter();
     }
     void StartCounter()
