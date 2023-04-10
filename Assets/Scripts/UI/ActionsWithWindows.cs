@@ -27,4 +27,8 @@ public class ActionsWithWindows : MonoBehaviour
             item.SetActive(true);
         }
     }
+    public void PlayOutSound(AudioClip clip)
+    {
+        AudioMeneger.instance.PlaySounds.PlaySounds(this.GetComponent<AudioSource>(), clip);
+    }
 }

@@ -273,10 +273,24 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0
+    functionName: PlayOutSound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 92e5bfc03baaf1a46ad47f5d629b1f55, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.5
     functionName: Action
     data: 
     objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.6666667
+    functionName: PlayOutSound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: ade8f759861ad1749a8741d703046dd7, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
