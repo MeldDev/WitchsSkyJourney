@@ -27,7 +27,8 @@ public class Localization : MonoBehaviour
         {"YOU LOSE", new string[]{ "YOU\nLOSE", "ВЫ\nПРОИГРАЛИ", "ВИ\nПРОГРАЛИ" }},
         {"SKIP", new string[]{ "SKIP", "ПРОПУСТИТЬ", "ПРОПУСТИТИ" }},
         {"watch ad to revive?", new string[]{ "watch ad to revive?", "посмотреть рекламу, чтобы продолжить?", "подивитися рекламу, щоб продовжити?" }},
-        {"MAX DISTANCE", new string[]{ "MAX DISTANCE", "МАКСИМАЛЬНОЕ РАССТОЯНИЕ", "МАКСИМАЛЬНА ВІДСТАНЬ" }}
+        {"MAX DISTANCE", new string[]{ "MAX DISTANCE", "МАКСИМАЛЬНОЕ РАССТОЯНИЕ", "МАКСИМАЛЬНА ВІДСТАНЬ" }},
+        {"TAP TO PLAY", new string[]{ "TAP TO\nPLAY", "Нажмите\nчтобы\nиграть", "Клацнiть\nщоб грати" }}
     };
 
     public enum LanguageList
