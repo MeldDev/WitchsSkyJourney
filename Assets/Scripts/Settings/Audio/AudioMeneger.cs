@@ -5,8 +5,8 @@ using UnityEngine;
 public class AudioMeneger : MonoBehaviour
 {
 
-    [SerializeField] private AudioSource _sounds;
-    [SerializeField] private AudioSource _music;
+    public PlaySound PlaySounds = new PlaySound();
+    public PlayMusic PlayMusics;
 
 
     public static AudioMeneger instance = null;

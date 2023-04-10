@@ -9,7 +9,6 @@ public class WellCurrentCounter : MonoBehaviour
     private void Start()
     {
         LevelSettings.instance.OnStartLevel += StartCounter;
-        WellBalance.instance.OnCurrencyChange += UpdateCounter;
         StartCounter();
     }
     void StartCounter()

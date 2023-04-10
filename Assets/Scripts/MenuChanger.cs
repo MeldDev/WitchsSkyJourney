@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MenuChanger : MonoBehaviour
 {
-    [SerializeField] GameObject _mainMenu;
-    [SerializeField] GameObject _playMenu;
+    [SerializeField] GameObject[] _mainMenu;
+    [SerializeField] GameObject[] _playMenu;
     void Start()
     {
         LevelSettings.instance.OnLoadMeinMenu += ChangeMenu;
@@ -17,13 +17,25 @@ public class MenuChanger : MonoBehaviour
 
         if (LevelSettings.instance.GameState)
         {
-            _mainMenu.SetActive(false);
-            _playMenu.SetActive(true);
+            foreach (var item in _mainMenu)
+            {
+                item.SetActive(false);
+            }
+            foreach (var item in _playMenu)
+            {
+                item.SetActive(true);
+            }
         }
         else
         {
-            _mainMenu.SetActive(true);
-            _playMenu.SetActive(false);
+            foreach (var item in _mainMenu)
+            {
+                item.SetActive(true);
+            }
+            foreach (var item in _playMenu)
+            {
+                item.SetActive(false);
+            }
         }
     }
 }

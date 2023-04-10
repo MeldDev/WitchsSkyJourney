@@ -1,23 +1,30 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ApplicationSettings : MonoBehaviour
 {
-    public CustomToggle MusicsToggle;
+
+    [SerializeField] private ISetting[] _allSettings;
+    [SerializeField] private GameObject[] _allSettingsObj;
+    private const string KEY = "APLICATION_SETTINGS";
+    private SaveSettings saveSettings = new SaveSettings();
+
+    //public PlayMusic PlayMusics;
     public bool Musics;
-    public CustomToggle SoundsToggle;
+    public PlaySound PlaySounds;
     public bool Sounds;
     public CustomToggle VibrationToggle;
     public bool Vibration;
     public CustomToggle ShowFpsCounterToggle;
     public bool ShowFpsCounter;
 
-    public string CurrentLanguage;
+    public int CurrentLanguage;
     public int CurrentQuality;
 
     public static ApplicationSettings instance = null;
-
     private void Awake()
     {
         if (instance == null)
@@ -29,34 +36,64 @@ public class ApplicationSettings : MonoBehaviour
             Destroy(gameObject);
         }
 
-        Application.targetFrameRate = 240;
+        //_allSettings = Resources.FindObjectsOfTypeAll(typeof(ISetting)) as ISetting[];
+        var d = new List<ISetting>();
+        foreach (var item in _allSettingsObj)
+        {
+            d.Add(item.GetComponent<ISetting>());
+        }
+        _allSettings = d.ToArray();
+        Debug.Log(_allSettings.Length);
+        LoadSave();
+        foreach (var setting in _allSettings)
+        {
+            setting.AddOnSetSetting(SaveAllSettings);
+        }
     }
-    public void SetFPS(int value)
+
+    void LoadSave()
     {
-        Application.targetFrameRate = value;
-    }
-    public void SetFpsCounter()
-    {
-        ShowFpsCounter = ShowFpsCounterToggle.IsOn;
-    }
-    public void SetMusics()
-    {
-        Musics = MusicsToggle.IsOn;
-    }
-    public void SetSounds()
-    {
-        Sounds = SoundsToggle.IsOn;
-    }
-    public void SetVibration()
-    {
-        Vibration = VibrationToggle.IsOn;
-    }
-    public void SetLanguage(string lang)
-    {
-        CurrentLanguage = lang;
+        if (PlayerPrefs.HasKey(KEY))
+        {
+            saveSettings = JsonUtility.FromJson<SaveSettings>(PlayerPrefs.GetString(KEY));
+
+            for (int i = 0; i < _allSettings.Length; i++)
+            {
+                _allSettings[i].SetSetting(saveSettings._allBoolSettings[i]);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < _allSettings.Length; i++)
+            {
+                _allSettings[i].FirstLoadSettings();
+            }
+        }
     }
     public void SetQuality(int quality)
     {
         CurrentQuality = quality;
     }
+    public void SaveAllSettings()
+    {
+        var listBool = new List<bool>();
+        foreach (var item in _allSettings)
+        {
+            listBool.Add(item.GetSetting());
+        }
+        saveSettings._allBoolSettings = listBool.ToArray();
+
+        foreach (var item in saveSettings._allBoolSettings)
+        {
+            Debug.Log(item);
+        }
+
+        PlayerPrefs.SetString(KEY, JsonUtility.ToJson(saveSettings));
+        PlayerPrefs.Save();
+    }
+}
+[Serializable]
+class SaveSettings
+{
+    public bool[] _allBoolSettings;
 }

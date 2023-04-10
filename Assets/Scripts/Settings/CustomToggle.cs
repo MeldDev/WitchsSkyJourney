@@ -1,32 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class CustomToggle : MonoBehaviour
 {
-    [SerializeField] private bool isOn;
-    public bool IsOn { get { return isOn; } }
+    public bool IsOn;
 
     [SerializeField] private GameObject isActivePanel;
-    public delegate void ChangeToggleDelegate_();
-    public ChangeToggleDelegate_ ChangeToggleDelegate;
+    public Action OnChangeToggle;
 
     private void OnValidate()
     {
-        ChangeToggleDelegate?.Invoke();
-        isActivePanel.SetActive(isOn);
+        OnChangeToggle?.Invoke();
+        isActivePanel.SetActive(IsOn);
     }
+    public void SetToggle(bool value)
+    {
+        if (!value)
+            return;
 
+        OnChangeToggle?.Invoke();
+        IsOn = value;
+        isActivePanel.SetActive(IsOn);
+    }
     public void ChangeToggle()
     {
-        ChangeToggleDelegate?.Invoke();
-        isOn = !isOn;
-        isActivePanel.SetActive(isOn);
+        OnChangeToggle?.Invoke();
+        IsOn = !IsOn;
+        isActivePanel.SetActive(IsOn);
     }
 
     public void OffToggle()
     {
-        isOn = false;
+        IsOn = false;
         isActivePanel.SetActive(false);
     }
 }

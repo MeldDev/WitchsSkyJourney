@@ -14,11 +14,12 @@ public class WitchController : MonoBehaviour, IClickable
     [SerializeField] private GameObject _tapToPlayPanel;
     [SerializeField] private GameObject _tapToResumePanel;
 
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _flySoundAudioClip;
+
     private void Start()
     {
         GameObject.FindObjectOfType<StartLevelPanel>().SetWitchGM(this.gameObject);
-        /*        LevelSettings.instance.LoadMeinMenuDelegate += () => _tapToPlayPanel.SetActive(true);
-                LevelSettings.instance.ResumeLevelDelegate += () => _tapToResumePanel.SetActive(true);*/
         LevelSettings.instance.OnFinishLevel += DestroyObj;
     }
 
@@ -33,8 +34,14 @@ public class WitchController : MonoBehaviour, IClickable
         _heroRigidBody.gravityScale = 2;
         _heroRigidBody.AddForce(new Vector2(0, 700));
         _heroRigidBody.velocity = Vector2.zero;
-        Vibration.Vibrate(100);
+        CallVibrate();
+
+        AudioMeneger.instance.PlaySounds.PlaySounds(_audioSource, _flySoundAudioClip);
+
         _skeletonAnimation.AnimationState.SetAnimation(1,_tapToFly, false);
     }
-
+    void CallVibrate() { 
+        if (ApplicationSettings.instance.Vibration)
+            Vibration.Vibrate(75); 
+    }
 } 

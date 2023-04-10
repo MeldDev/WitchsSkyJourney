@@ -14,7 +14,7 @@ public class PickUpGem : MonoBehaviour
     {
         if (collision.gameObject.tag == "Witch")
         {
-            GemBalance.instance.PlusCurrencyOnValue(1);
+            GameObject.FindObjectOfType<PumpkinsBalance>().AddCoins(this, 1);
             Destroy(this.gameObject);
         }
     }

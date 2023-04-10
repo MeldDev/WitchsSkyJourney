@@ -7,7 +7,7 @@ public class CustomToggleGroup : MonoBehaviour
     {
         foreach (var item in _toggleList)
         {
-            item.ChangeToggleDelegate += OffAllToggle;
+            item.OnChangeToggle += OffAllToggle;
         }
     }
 
