@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class ApplicationSettings : MonoBehaviour
 {
-
+    public Localization Localizations;
     [SerializeField] private ISetting[] _allSettings;
     [SerializeField] private GameObject[] _allSettingsObj;
     private const string KEY = "APLICATION_SETTINGS";
@@ -21,8 +21,6 @@ public class ApplicationSettings : MonoBehaviour
     public CustomToggle ShowFpsCounterToggle;
     public bool ShowFpsCounter;
 
-    public int CurrentLanguage;
-    public int CurrentQuality;
 
     public static ApplicationSettings instance = null;
     private void Awake()
@@ -69,10 +67,6 @@ public class ApplicationSettings : MonoBehaviour
                 _allSettings[i].FirstLoadSettings();
             }
         }
-    }
-    public void SetQuality(int quality)
-    {
-        CurrentQuality = quality;
     }
     public void SaveAllSettings()
     {

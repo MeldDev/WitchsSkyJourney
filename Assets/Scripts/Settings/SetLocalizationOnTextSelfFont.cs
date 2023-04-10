@@ -9,15 +9,15 @@ public class SetLocalizationOnTextSelfFont : MonoBehaviour
     void Start()
     {
         SetString();
-        Localization.Instance.localizationDelegate += SetString;
+        ApplicationSettings.instance.Localizations.localizationDelegate += SetString;
     }
 
     void SetString()
     {
         if (_key == "") return;
-        var tuple = Localization.Instance.GetLocalization(_key);
+        var tuple = ApplicationSettings.instance.Localizations.GetLocalization(_key);
         var tmp = this.GetComponent<TextMeshProUGUI>();
         tmp.text = tuple.Item2;
-        tmp.font = _font[Localization.Instance.GetLanguage()];
+        tmp.font = _font[ApplicationSettings.instance.Localizations.GetLanguage()];
     }
 }

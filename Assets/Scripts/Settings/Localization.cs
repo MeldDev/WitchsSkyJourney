@@ -5,10 +5,9 @@ using System;
 
 public class Localization : MonoBehaviour
 {
-
-    public static Localization Instance;
     [SerializeField] private TMP_FontAsset _englishFont;
     [SerializeField] private TMP_FontAsset _russianFont;
+    [SerializeField] private TMP_FontAsset _ukraineFont;
     [SerializeField] private LanguageList _language;
     public delegate void LocalizationDelegate();
     public LocalizationDelegate localizationDelegate;
@@ -37,20 +36,6 @@ public class Localization : MonoBehaviour
         Russian,
         Ukraine
     }
-
-    void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(this);
-        }
-    }
-
     public void SetLanguage(int lang)
     {
         _language = (LanguageList)lang;
@@ -67,6 +52,7 @@ public class Localization : MonoBehaviour
         {
             case LanguageList.English: return Tuple.Create(_englishFont, _stringDictionary[key][(int)_language]);
             case LanguageList.Russian: return Tuple.Create(_russianFont, _stringDictionary[key][(int)_language]);
+            case LanguageList.Ukraine: return Tuple.Create(_ukraineFont, _stringDictionary[key][(int)_language]);
             default: return Tuple.Create(_englishFont, _stringDictionary[key][(int)_language]);
         }
     }

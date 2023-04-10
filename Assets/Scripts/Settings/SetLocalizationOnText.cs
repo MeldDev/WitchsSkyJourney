@@ -7,13 +7,13 @@ public class SetLocalizationOnText : MonoBehaviour
     void Start()
     {
         SetString();
-        Localization.Instance.localizationDelegate += SetString;
+        ApplicationSettings.instance.Localizations.localizationDelegate += SetString;
     }
 
     void SetString()
     {
         if (_key == "") return;
-        var tuple = Localization.Instance.GetLocalization(_key);
+        var tuple = ApplicationSettings.instance.Localizations.GetLocalization(_key);
         var tmp = this.GetComponent<TextMeshProUGUI>();
         tmp.font = tuple.Item1;
         tmp.text = tuple.Item2;

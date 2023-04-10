@@ -1,13 +1,13 @@
 using System;
+using System.Reflection;
 using UnityEngine;
 
-public class SettingSetLang : MonoBehaviour, ISetting
+public class SettingQuality : MonoBehaviour, ISetting
 {
-    [SerializeField] private int _lang;
-
-    Action onSetSetting;
-
     public CustomToggle Toggle;
+    [SerializeField] private int _indexQualityLevel;
+
+    private Action onSetSetting;
 
     public void AddOnSetSetting(Action handler)
     {
@@ -29,7 +29,8 @@ public class SettingSetLang : MonoBehaviour, ISetting
         Toggle.SetToggle(value);
         if (value)
         {
-            ApplicationSettings.instance.Localizations.SetLanguage(_lang);
+            QualitySettings.SetQualityLevel(_indexQualityLevel, true);
+            Debug.Log($"SetUp setting: QUALITY: {QualitySettings.names[QualitySettings.GetQualityLevel()]}");
         }
         onSetSetting?.Invoke();
     }
@@ -39,16 +40,16 @@ public class SettingSetLang : MonoBehaviour, ISetting
         Toggle.SetToggle(!Toggle.IsOn);
         if (Toggle.IsOn)
         {
-            ApplicationSettings.instance.Localizations.SetLanguage(_lang);
+            QualitySettings.SetQualityLevel(_indexQualityLevel, true);
+            Debug.Log($"SetUp setting: QUALITY: {QualitySettings.names[QualitySettings.GetQualityLevel()]}");
         }
         onSetSetting?.Invoke();
     }
-
     public void FirstLoadSettings()
     {
-        if (_lang == 0)
+        if (_indexQualityLevel == 2)
         {
-            SetSetting(true);
+            SetSetting();
         }
     }
 }
