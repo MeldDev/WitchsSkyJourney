@@ -30,6 +30,9 @@ public class WitchController : MonoBehaviour, IClickable
     }
     public void Interact()
     {
+        if (_heroRigidBody == null)
+            return;
+
         if (!LevelSettings.instance.GameState) LevelSettings.instance.StartLevel();
         _heroRigidBody.gravityScale = 2;
         _heroRigidBody.AddForce(new Vector2(0, 700));

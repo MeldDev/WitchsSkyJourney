@@ -14,4 +14,11 @@ public class StartLevelPanel : MonoBehaviour
     {
         _witchController.Interact();
     }
+    public void ResumeGame(GameObject sender)
+    {
+        Time.timeScale = 1.0f;
+        sender.SetActive(false);
+        LevelSettings.instance.ResumetLevel();
+        _witchController.Interact();
+    }
 }

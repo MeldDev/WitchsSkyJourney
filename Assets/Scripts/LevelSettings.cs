@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class LevelSettings: MonoBehaviour
 {
+    [SerializeField] private int showAds = 0;
+    [SerializeField] private YandexAdsWebGL _yandexAds; 
+
+
     [SerializeField] private GameObject _witchPrefab;
     [SerializeField] private Transform _startPosition;
 
@@ -30,8 +34,11 @@ public class LevelSettings: MonoBehaviour
         }
         LoadMainMenu();
     }
+
     public void LoadMainMenu()
     {
+        ShowFullAdsAds();
+
         GameState = false;
         IsPause = false;
         Instantiate(_witchPrefab, _startPosition.transform.position, Quaternion.identity);
@@ -49,6 +56,7 @@ public class LevelSettings: MonoBehaviour
     }
     public void FinishLevel()
     {
+
         //LoseMenu
         GameState = false;
         IsPause = true;
@@ -68,5 +76,19 @@ public class LevelSettings: MonoBehaviour
         gm.Interact();
         OnResumeLevel?.Invoke();
         Debug.Log("Resume Level");
+    }
+    public void ShowRewardedAds()
+    {
+        _yandexAds.ReviveRewardYandexAds();
+        //_yandexAds.Rewarded();
+    }    
+    public void ShowFullAdsAds()
+    {
+        showAds++;
+        if (showAds >= 3)
+        {
+            showAds = 0;
+            _yandexAds.FinishShowFullScreenAds();
+        }
     }
 }
