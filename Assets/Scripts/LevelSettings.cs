@@ -37,6 +37,7 @@ public class LevelSettings: MonoBehaviour
 
     public void LoadMainMenu()
     {
+        AudioListener.volume = 1;
         ShowFullAdsAds();
 
         GameState = false;
@@ -49,6 +50,7 @@ public class LevelSettings: MonoBehaviour
     }
     public void StartLevel()
     {
+        AudioListener.volume = 1;
         GameState = true;
         IsPause = false;
         OnStartLevel?.Invoke();
@@ -56,7 +58,7 @@ public class LevelSettings: MonoBehaviour
     }
     public void FinishLevel()
     {
-
+        AudioListener.volume = 1;
         //LoseMenu
         GameState = false;
         IsPause = true;
@@ -72,6 +74,7 @@ public class LevelSettings: MonoBehaviour
     {
         GameState = true;
         IsPause = false;
+        AudioListener.volume = 1;
         var gm = Instantiate(_witchPrefab, _startPosition.transform.position, Quaternion.identity).GetComponent<WitchController>();
         gm.Interact();
         OnResumeLevel?.Invoke();
@@ -87,6 +90,7 @@ public class LevelSettings: MonoBehaviour
         showAds++;
         if (showAds >= 3)
         {
+            AudioListener.volume = 0;
             showAds = 0;
             _yandexAds.FinishShowFullScreenAds();
         }

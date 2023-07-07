@@ -46,7 +46,7 @@ public class SettingSetLang : MonoBehaviour, ISetting
 
     public void FirstLoadSettings()
     {
-        if (_lang == 0)
+        if (_lang == 1)
         {
             SetSetting(true);
         }

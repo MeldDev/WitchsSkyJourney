@@ -11,6 +11,8 @@ public class AudioMeneger : MonoBehaviour
 
     public static AudioMeneger instance = null;
 
+    public AudioListener AudioListener;
+
     private void Awake()
     {
         if (instance == null)

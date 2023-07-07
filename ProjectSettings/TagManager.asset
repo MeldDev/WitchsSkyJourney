@@ -16,7 +16,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Stars
   - 
   - 
   - 
@@ -51,6 +51,9 @@ TagManager:
     locked: 0
   - name: Game
     uniqueID: 4123944975
+    locked: 0
+  - name: Stars
+    uniqueID: 1549262869
     locked: 0
   - name: UI
     uniqueID: 3741549569
